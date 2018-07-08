@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd"><!-- ====================================================================== -->
+<!-- -->
+<!-- Log4j Configuration -->
+<!-- -->
+<!-- ====================================================================== -->
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+	debug="false">
+	<!-- ================================================================== -->
+	<!-- The Console Appender. -->
+	<!-- ================================================================== -->
+
+	<appender name="speech_logger" class="org.apache.log4j.RollingFileAppender">
+
+		<param name="maxFileSize" value="5024KB" />
+		<param name="maxBackupIndex" value="5" />
+		<param name="File" value="D:/logs/event.log" />
+		<param name="Append" value="false" />
+		<param name="threshold" value="trace" />
+		<layout class="org.apache.log4j.PatternLayout">
+
+			<param name="ConversionPattern" value="%d (Client-%x.) %5p %c{1}:%L - %m%n" />
+		</layout>
+	</appender>
+
+
+
+
+	<logger name="com.technothink.speech">
+
+		<level value="debug" />
+		<appender-ref ref="speech_logger" />
+
+	</logger>
+
+
+
+
+
+
+
+	<root>
+
+	</root>
+</log4j:configuration>
